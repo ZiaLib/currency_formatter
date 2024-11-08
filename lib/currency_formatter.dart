@@ -34,6 +34,8 @@ abstract class CurrencyFormatter {
     enforceDecimals = false,
   }) {
     amount = double.parse('$amount');
+    String sign = amount < 0 ? '-' : '';
+    amount = amount.abs();
     late String number;
     String letter = '';
 
@@ -69,13 +71,14 @@ abstract class CurrencyFormatter {
         }
       }
     }
+
     switch (settings.symbolSide) {
       case SymbolSide.left:
-        return '${settings.symbol}${settings.symbolSeparator}$number$letter';
+        return '$sign${settings.symbol}${settings.symbolSeparator}$number$letter';
       case SymbolSide.right:
-        return '$number$letter${settings.symbolSeparator}${settings.symbol}';
+        return '$sign$number$letter${settings.symbolSeparator}${settings.symbol}';
       default:
-        return '$number$letter';
+        return '$sign$number$letter';
     }
   }
 
