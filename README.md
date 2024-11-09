@@ -1,3 +1,5 @@
+Modified to my taste.
+
 # currency_formatter
 
 A package to easily format money. It supports setting a custom currency symbol and format,
